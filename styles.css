@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #121212; /* Dark background */
-    color: #e0e0e0; /* Light text */
+    color: #B2AC88; /* Light text */
 }
 
 /* Timeline Styles */
@@ -16,7 +16,6 @@ body {
     width: 80%;
     max-width: 800px;
     position: relative;
-    padding-left: 20px;
 }
 
 .timeline:before {
@@ -25,69 +24,74 @@ body {
     left: 50%;
     top: 0;
     bottom: 0;
-    width: 2px;
-    background-color: #bb86fc; /* Purple for timeline line */
+    width: 4px;
+    background-color: #B2AC88; /* Line color */
 }
 
 /* Timeline Item Styles */
 .timeline-item {
     position: relative;
     display: flex;
-    align-items: flex-start;
-    margin: 20px 0;
+    align-items: center;
     width: 100%;
+    justify-content: space-between;
+    margin: 30px 0;
 }
 
-.timeline-item .date {
-    flex: 1;
-    text-align: right;
-    padding-right: 20px;
-    color: #a0a0a0; /* Muted text color */
+/* Alternate sides for text and image */
+.timeline-item:nth-child(odd) {
+    flex-direction: row-reverse;
 }
 
-.timeline-item .content {
-    flex: 2;
-    background: #333333; /* Darker background for items */
-    border: 1px solid #333; /* Subtle border */
-    border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Shadow effect */
+.timeline-item:nth-child(even) {
+    flex-direction: row;
 }
 
-.timeline-item .content h3 {
-    margin: 0 0 10px;
+/* Text Section (Title + Date) */
+.text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 45%;
+}
+
+.text-content h3 {
     font-size: 1.2em;
-    color: #B2AC88; /* Purple for headers */
+    color: #B2AC88;
+    margin-bottom: 5px;
 }
 
-.timeline-item .content p {
-    margin: 0 0 10px;
-    color: #cfcfcf; /* Softer light text */
-    font-size: 0.9em;
+.text-content .date {
+    font-size: 1em;
+    color: #cfcfcf;
 }
 
-.timeline-item .content img {
+/* Image Content */
+.content {
+    width: 45%;
+}
+
+.content img {
     width: 100%;
     border-radius: 8px;
-    margin-top: 10px;
-    border: 1px solid #444; /* Add border to images */
+    border: 1px solid #444;
 }
 
 /* Hover Effects */
-.timeline-item:hover .content {
-    background-color: #292929; /* Slightly lighter on hover */
-    transform: translateY(-5px); /* Pop-up effect */
+.timeline-item:hover .content img {
+    transform: scale(1.05);
     transition: 0.3s ease;
 }
 
-/* Responsive Media Query */
+/* Responsive Design */
 @media (max-width: 768px) {
     .timeline-item {
-        flex-direction: column;
+        flex-direction: column !important;
+        align-items: center;
     }
-    
-    .timeline-item .date {
-        text-align: left;
-        padding-right: 0;
+    .text-content, .content {
+        width: 90%;
     }
 }
