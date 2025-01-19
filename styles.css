@@ -47,6 +47,15 @@ body {
     flex-direction: row;
 }
 
+.header h1 {
+    font-size: 5em;
+    color: #B2AC88;
+    margin-bottom: 5px;
+    margin-top: 14px;
+    align-self: center;
+    align-self: center;
+}
+
 /* Text Section (Title + Date) */
 .text-content {
     display: flex;
